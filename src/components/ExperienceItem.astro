@@ -12,17 +12,17 @@ interface Props {
 const { date, company, role, technologies, link } = Astro.props
 ---
 
-<li class="min-h-40 mb-10 group relative cursor-pointer">
+<li class="min-h-40 mb-10 group/item relative cursor-pointer transition-all">
     <span class="absolute dot h-3 w-3 rounded-full bg-teal-400"></span>
     <a href={link} target="_blank">
-        <div class="group-hover:bg-slate-800 p-4 rounded-md transition-all duration-150">
+        <div class="group-hover/item:bg-slate-800/50 group-hover/list:opacity-50 group-hover/item:!opacity-100 p-4 rounded-md transition-all">
             <div class="flex justify-between">
                 <time class="text-xs font-semibold uppercase tracking-wide">{date}</time>
-                <div class="h-5 w-5 group-hover:-translate-y-1 duration-200">
-                    <ArrowIcon class="absolute h-5 w-5" />
+                <div class="h-5 w-5 group-hover/item:-translate-y-1 duration-200">
+                    <ArrowIcon class="absolute h-5 w-5 group-hover/item:text-teal-400" />
                 </div>
             </div>
-            <h3 class="font-medium text-slate-200 leading-tight my-2">{company}</h3>
+            <h3 class="font-medium text-slate-200 leading-tight my-2 group-hover/item:text-teal-400">{company}</h3>
             <h3  class="text-sm font-semibold uppercase tracking-wide">{role}</h3>
 
             <div class="text-sm lead tracking-wider mt-8">
@@ -44,7 +44,7 @@ const { date, company, role, technologies, link } = Astro.props
 
 <style>
     .dot {
-        top: 24px;
+        top: 18px;
         left: -7px;
     }
 </style>
