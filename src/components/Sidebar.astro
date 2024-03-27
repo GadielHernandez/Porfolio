@@ -1,0 +1,86 @@
+---
+import LineIcon from './icons/LineIcon.astro';
+import ArrowRightIcon from './icons/ArrowRightIcon.astro';
+interface Section {
+    title: string;
+    anchor: string;
+}
+
+interface Props {
+    sections: Section[];
+}
+
+const { sections } = Astro.props;
+---
+
+<nav class="mt-16 sidebar">
+    <ul>
+        {
+            sections.map((section) => (
+                <li class="sidebar-items">
+                    <a
+                        class="group py-3 flex items-center cursor-pointer"
+                        href={section.anchor}
+                    >
+                        <ArrowRightIcon class="w-6 arrow" />
+                        <LineIcon class="w-6 line" />
+                        <span class="text-sm font-bold tracking-wider uppercase group-hover:text-white group-hover:ml-6 group-hover:translate-x-1 duration-150 leading-none ml-3 text">
+                            {section.title}
+                        </span>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebarItems = document.querySelectorAll('.sidebar-items');
+        const sections = [...document.querySelectorAll('section.section')].map(
+            (section) => ({
+                id: section.id,
+                position: section.getBoundingClientRect(),
+            })
+        );
+
+        const scrollSpy = () => {
+            const delta = 80;
+            const currentPosition = document.documentElement.scrollTop;
+            let closestSection = sections.findIndex(
+                (section) =>
+                    currentPosition > section.position.y - delta &&
+                    currentPosition < section.position.bottom - delta
+            );
+
+            closestSection = Math.max(0, closestSection);
+            sidebarItems.forEach((item, index) => {
+                if (index === closestSection)
+                    item.classList.add('sidebar-active');
+                else item.classList.remove('sidebar-active');
+            });
+        };
+
+        scrollSpy();
+        window.addEventListener('scroll', scrollSpy);
+    });
+</script>
+
+<style>
+    .arrow {
+        display: none;
+    }
+    .sidebar-active .text {
+        margin-left: 2rem;
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity));
+    }
+    .sidebar-active .line {
+        display: none;
+    }
+    .sidebar-active .arrow {
+        display: block;
+        --tw-text-opacity: 1;
+        color: rgb(45 212 191 / var(--tw-text-opacity));
+    }
+</style>

@@ -1,63 +1,61 @@
 ---
-import GithubIcon from './icons/GithubIcon.astro'
-import LinkedinIcon from './icons/LinkedinIcon.astro'
-import GmailIcon from './icons/GmailIcon.astro'
-import Sidebar from './Sidebar.tsx'
-import ArrowRightIcon from './icons/ArrowRightIcon.astro'
-import LineIcon from './icons/LineIcon.astro'
+import GithubIcon from './icons/GithubIcon.astro';
+import LinkedinIcon from './icons/LinkedinIcon.astro';
+import GmailIcon from './icons/GmailIcon.astro';
+import Sidebar from './Sidebar.astro';
 
 const sections = [
     {
         title: 'Sobre mi',
-        anchor: '#about'
+        anchor: '#about',
     },
     {
         title: 'Experiencia',
-        anchor: '#experience'
+        anchor: '#experience',
     },
     {
         title: 'Trabajos',
-        anchor: '#jobs'
-    }
-]
+        anchor: '#jobs',
+    },
+];
 ---
 
-<div class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 lg:min-h-screen">
+<div
+    class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 lg:min-h-screen"
+>
     <div>
         <article>
-            <h1 class="text-5xl font-bold tracking-tight text-slate-200">Gadiel Hernandez</h1>
-            <h2 class="text-xl font-medium tracking-tight text-slate-200 mt-2">Desarrollador Full Stack</h2>
-            <p class="mt-3 max-w-[350px]">+6 años de experiencia en la creacion de aplicaciones web.</p>
+            <h1 class="text-5xl font-bold tracking-tight text-slate-200">
+                Gadiel Hernandez
+            </h1>
+            <h2 class="text-xl font-medium tracking-tight text-slate-200 mt-2">
+                Desarrollador Full Stack
+            </h2>
+            <p class="mt-3 max-w-[350px]">
+                +6 años de experiencia en la creacion de aplicaciones web.
+            </p>
         </article>
 
-        
-
-        <Sidebar client:load sections={sections} initialSection={0}>
-            <ArrowRightIcon 
-                slot="default-icon"
-                class="h-5 w-auto arrow group-hover:text-teal-400 group-hover:block hidden animate-fade-right animate-duration-300" 
-            />
-            <LineIcon 
-                slot="active-icon"
-                class="h-5 w-auto line group-hover:text-white group-hover:hidden group-hover:rotate-45 animate-fade-right animate-duration-300" 
-            />
-        </Sidebar>
+        <Sidebar sections={sections} />
     </div>
 
     <ul class="flex gap-6 mt-9 items-center">
         <li>
             <a href="https://github.com/GadielHernandez" target="_blank">
-                <GithubIcon class="h-7 w-auto hover:text-slate-200"/>
+                <GithubIcon class="h-7 w-auto hover:text-slate-200" />
             </a>
         </li>
         <li>
-            <a href="https://www.linkedin.com/in/gadielhernandez/" target="_blank">
-                <LinkedinIcon class="h-7 w-auto hover:text-slate-200"/>
+            <a
+                href="https://www.linkedin.com/in/gadielhernandez/"
+                target="_blank"
+            >
+                <LinkedinIcon class="h-7 w-auto hover:text-slate-200" />
             </a>
         </li>
         <li>
             <a href="mailto:gadhdz96@gmail.com" target="_blank">
-                <GmailIcon class="h-8 w-auto hover:text-slate-200"/>
+                <GmailIcon class="h-8 w-auto hover:text-slate-200" />
             </a>
         </li>
     </ul>
