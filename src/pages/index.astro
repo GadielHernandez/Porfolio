@@ -1,35 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import About from '../components/About.astro'
-import Experience from '../components/Experience.astro'
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
 import Jobs from '../components/Jobs.astro';
+import Projects from '../components/Projects.astro';
 ---
 
-<Layout title="Gadiel Hernandez - Desarrollador Web" description='Portafolio Gadiel Hernandez - Desarrollador Web Full Stack'>
-	<main class="pt-24 lg:w-1/2 tracking-wide">
-		<section id="about" class="section">
-			<About />
-		</section>
-		<section id="experience" class="section pt-28">
-			<Experience />
-		</section>
-		<section id="jobs" class="section pt-28">
-			<Jobs />
-		</section>
-	</main>
+<Layout
+    title="Gadiel Hernandez - Desarrollador Web"
+    description="Portafolio Gadiel Hernandez - Desarrollador Web Full Stack"
+>
+    <main class="pt-24 lg:w-1/2 tracking-wide">
+        <section id="about" class="section">
+            <About />
+        </section>
+        <section id="experience" class="section pt-28">
+            <Experience />
+        </section>
+        <section id="jobs" class="section pt-28">
+            <Jobs />
+        </section>
+        <section id="projects" class="section pt-28">
+            <Projects />
+        </section>
+    </main>
 </Layout>
 
 <style is:global>
-	strong {
-		font-weight: 500;
-		color: white;
-	}
-	strong:hover {
-		--tw-text-opacity: 1;
-    	color: rgb(45 212 191 / var(--tw-text-opacity));
-		cursor: default;
-	}
-	p {
-		margin-bottom: 12px;
-	}
+    strong {
+        font-weight: 500;
+        color: white;
+    }
+    strong:hover {
+        --tw-text-opacity: 1;
+        color: rgb(45 212 191 / var(--tw-text-opacity));
+        cursor: default;
+    }
+    p {
+        margin-bottom: 12px;
+    }
 </style>

@@ -1,0 +1,35 @@
+---
+import Card from './Card.astro';
+import moviePickerImage from '../img/moviePicker.png';
+---
+
+<div class="group/list">
+    <Card
+        image={moviePickerImage}
+        altImage="Captura de pantalla de la página de Movie Picker"
+        title="Movie Picker"
+        technologies={[
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Astro',
+            'TailwindCSS',
+            'React',
+        ]}
+        link="https://creser.fuentedevida.com.mx/login"
+    >
+        <div class="text-sm leading-relaxed tracking-wider">
+            <p>
+                Como amante de las peliculas y por la temporada de premios,
+                decidí crear una plataforma para poder guardar las predicciones
+                de los ganadores de peliculas nominadas a los premios de la
+                academia.
+            </p>
+            <p>
+                En esta plataforma los usuarios pueden crear una cuenta, guardar
+                sus predicciones, compartir su perfil con sus selecciones y
+                crear grupos para competir con sus amigos.
+            </p>
+        </div>
+    </Card>
+</div>
